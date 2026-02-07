@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+body{
+  height:100vh;
+  background:radial-gradient(circle at top,#2a0036,#050008);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  overflow:hidden;
+}
+
+/* COMMON PAGE */
+.page{
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+#celebration,#gallery{display:none;}
+
+/* PAGE 1 */
+h1{
+  font-size:2rem;
+  text-shadow:0 0 25px #ff4da6;
+}
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+button{
+  padding:14px 30px;
+  font-size:1.1rem;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  font-weight:700;
+}
+#yes{
+  background:linear-gradient(45deg,#ff2f92,#a600ff);
+  color:white;
+}
+#no{
+  background:white;
+  color:#ff2f92;
+}
+
+/* PAGE 2 */
+.message-box{
+  max-width:520px;
+  background:rgba(0,0,0,0.6);
+  border-radius:24px;
+  padding:30px;
+}
+.message-box h2{
+  font-family:'Pacifico';
+  color:#ff9ad5;
+  margin-bottom:15px;
+}
+.message-box p{
+  line-height:1.7;
+}
+.open-box{
+  margin-top:25px;
+  padding:14px;
+  border-radius:16px;
+  background:linear-gradient(45deg,#ff2f92,#7b00ff);
+  cursor:pointer;
+}
+
+/* PAGE 3 */
+.slider{
+  width:260px;
+  height:340px;
+  border-radius:20px;
+  overflow:hidden;
+}
+.slider img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page" id="question">
+  <div>
+    <h1>AMBALIKA, WILL YOU BE MY VALENTINE? 💖</h1>
+    <div class="buttons">
+      <button id="yes">YES 💘</button>
+      <button id="no">NO 🙈</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="celebration">
+  <div class="message-box">
+    <h2>Happy Valentine Week 💕✨</h2>
+    <p>
+      Tu sirf dost nahi,<br>
+      meri aadat aur sukoon hai 🤍🌸<br><br>
+
+      Tu sirf dost nahi,<br>
+      meri aadat aur sukoon hai 💖<br>
+      Andheri raaton me jo roshni bane 🌙✨<br>
+      Wo pyari si wajah tu hi hai 🌹💫<br><br>
+
+      Valentine shayad pyaar ke liye hota hoga 💝<br>
+      Par meri har khushi ka reason<br>
+      bas tum hi rahe ho 🤗❤️<br><br>
+
+      <b>Dostu 💞🫶</b>
+    </p>
+
+    <div class="open-box" id="openBox">Open Memories 💕📸</div>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="gallery">
+  <div class="slider">
+    <img id="slide" src="1.jpg">
+  </div>
+</div>
+
+<audio id="music" src="https://cdn.pixabay.com/audio/2023/02/14/audio_5c7c3a63a4.mp3"></audio>
+
+<script>
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+const question = document.getElementById("question");
+const celebration = document.getElementById("celebration");
+const gallery = document.getElementById("gallery");
+const openBox = document.getElementById("openBox");
+const slide = document.getElementById("slide");
+const music = document.getElementById("music");
+
+/* YES → PAGE 2 */
+yes.onclick = () => {
+  question.style.display = "none";
+  celebration.style.display = "flex";
+  music.play();
+};
+
+/* SLIDESHOW (change number as per photos) */
+let i = 1;
+openBox.onclick = () => {
+  celebration.style.display = "none";
+  gallery.style.display = "flex";
+
+  slide.src = "1.jpg";
+
+  setInterval(() => {
+    i++;
+    if(i > 5) i = 1;   // jitni photos ho utna number
+    slide.src = i + ".jpg";
+  }, 2000);
+};
+</script>
+
+</body>
+</html>
